@@ -12,6 +12,7 @@ on:
     # Runs daily at midnight IST (18:30 UTC)
     - cron: "30 18 * * *"
     - cron: "30 17 * * *"
+    - cron: "30 17 * * *"
   workflow_dispatch:
     inputs:
       env:
