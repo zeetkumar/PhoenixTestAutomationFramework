@@ -69,6 +69,7 @@ public class SpecUtil {
 				.setBaseUri(ConfigManager.getProperty("BASE_URI"))
 				.setContentType(ContentType.JSON)
 				.setAccept(ContentType.JSON)
+				.addHeader("Authorization",AuthtokenProvider.getToken(role))
 				.setBody(payload)
 				.log(LogDetail.URI)
 				.log(LogDetail.METHOD)
