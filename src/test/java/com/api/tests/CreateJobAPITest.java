@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.startsWith;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.joda.time.Instant;
 import org.testng.annotations.Test;
 
 import com.api.constant.Role;
@@ -16,6 +17,7 @@ import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
 import com.api.request.model.Problems;
+import static com.api.utils.DateTimeUtil.*;
 import com.api.utils.SpecUtil;
 
 public class CreateJobAPITest {
@@ -25,9 +27,12 @@ public class CreateJobAPITest {
 	
 	@Test
 	public void createJobAPITest() {
+		
+		System.out.println(Instant.now().minus(10));
+		System.out.println("################################");
 		Customer customer= new Customer("Jiten", "Ram", "8768268447", "", "zitenram@gmail.com","");
 		CustomerAddress customerAddress = new CustomerAddress("D 404","Vasant Galaxy","Bangur Nagar","Inorbit", "Mumbai", "411039","India","Maharashtra");
-		CustomerProduct customerProduct = new CustomerProduct("2025-09-01T18:30:00.000Z","14057920836419","14057920836419","14057920836419","2025-09-01T18:30:00.000Z",3,3);
+		CustomerProduct customerProduct = new CustomerProduct(getTimeWithDaysAgo(10),"14057920836519","14057920836519","14057920836519",getTimeWithDaysAgo(10),3,3);
 		Problems problems= new Problems(1,"Battery issue");
 		List<Problems> problemsList = new ArrayList<Problems>();
 		problemsList.add(problems);
