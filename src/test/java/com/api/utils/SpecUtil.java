@@ -3,7 +3,7 @@ package com.api.utils;
 import org.hamcrest.Matchers;
 
 import com.api.constant.Role;
-import com.api.pojo.UserCredentilas;
+import com.api.request.model.UserCredentilas;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;

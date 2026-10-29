@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import com.api.pojo.UserCredentilas;
+import com.api.request.model.UserCredentilas;
 import com.api.utils.SpecUtil;
 
 public class LoginAPITest {
