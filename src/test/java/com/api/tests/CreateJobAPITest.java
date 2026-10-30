@@ -1,5 +1,6 @@
 package com.api.tests;
 
+import static com.api.utils.DateTimeUtil.getTimeWithDaysAgo;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
@@ -8,16 +9,21 @@ import static org.hamcrest.Matchers.startsWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.joda.time.Instant;
 import org.testng.annotations.Test;
 
+import com.api.constant.Model;
+import com.api.constant.OEM;
+import com.api.constant.Platform;
+import com.api.constant.Problem;
+import com.api.constant.Product;
 import com.api.constant.Role;
+import com.api.constant.ServiceLocation;
+import com.api.constant.Warranty_Status;
 import com.api.request.model.CreateJobPayload;
 import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
 import com.api.request.model.Problems;
-import static com.api.utils.DateTimeUtil.*;
 import com.api.utils.SpecUtil;
 
 public class CreateJobAPITest {
@@ -28,16 +34,17 @@ public class CreateJobAPITest {
 	@Test
 	public void createJobAPITest() {
 		
-		System.out.println(Instant.now().minus(10));
-		System.out.println("################################");
+		
 		Customer customer= new Customer("Jiten", "Ram", "8768268447", "", "zitenram@gmail.com","");
 		CustomerAddress customerAddress = new CustomerAddress("D 404","Vasant Galaxy","Bangur Nagar","Inorbit", "Mumbai", "411039","India","Maharashtra");
-		CustomerProduct customerProduct = new CustomerProduct(getTimeWithDaysAgo(10),"14057920836519","14057920836519","14057920836519",getTimeWithDaysAgo(10),3,3);
-		Problems problems= new Problems(1,"Battery issue");
+		CustomerProduct customerProduct = new CustomerProduct(getTimeWithDaysAgo(10),"14057920736519","14057920736519","14057920736519",getTimeWithDaysAgo(10),
+				Product.NEXUS_2.getCode(),Model.NEXUS_2_BLUE.getCode());
+		Problems problems= new Problems(Problem.SMARTPHONE_IS_RUNNING_SLOW.getCode(),"Battery issue");
+		
 		List<Problems> problemsList = new ArrayList<Problems>();
 		problemsList.add(problems);
 		
-		CreateJobPayload createJobPayload= new CreateJobPayload(0, 2, 1, 2, customer, customerAddress, customerProduct, problemsList);
+		CreateJobPayload createJobPayload= new CreateJobPayload(ServiceLocation.SERVICE_LOCATION_A.getCode(), Platform.FRONT_DESK.getCode(),Warranty_Status.OUT_WARRANTY.getCode(), OEM.GOOGLE.getCode(), customer, customerAddress, customerProduct, problemsList);
 	 
 		given()
 	  .spec(SpecUtil.requestSpecWithAuth(Role.FD, createJobPayload))
