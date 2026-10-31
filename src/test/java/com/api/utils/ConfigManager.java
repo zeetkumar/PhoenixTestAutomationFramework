@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigManager {
-	// WAP to read the Properties file from src/test/resources/config/config.properties
+	
 	
 	private static Properties prop = new Properties();
 	private static String path ="config/config.properties";
