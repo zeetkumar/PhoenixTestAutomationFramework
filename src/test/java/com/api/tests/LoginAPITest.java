@@ -29,9 +29,7 @@ public class LoginAPITest {
 		
 		given()
 		.spec(requestspec(userCredentilas))
-		
-		
-        .when()
+	    .when()
         .post("login")
         .then()
         .body("message",equalTo("Success"))
