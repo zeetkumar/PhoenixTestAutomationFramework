@@ -55,7 +55,7 @@ jobs:
         run: >
           mvn clean test
           -DsuiteXmlFile="${{ inputs.suiteXmlFile || 'testng.xml' }}"
-          -Denv="${{ inputs.env || 'qa' }}"
+          -Denv="${{ inputs.env || 'qa' }}" 
 
       - name: Upload Surefire Reports
         if: always()
