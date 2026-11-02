@@ -18,7 +18,7 @@ public class ReadCSVFile {
 
 		List<String[]> dataList = csvReader.readAll();
 		for (String[] dataArray : dataList) {
-			for (String data : dataArray) {
+			
 
 				System.out.println(dataArray[0] + " ");
 				System.out.println(dataArray[1] + " ");
@@ -28,4 +28,4 @@ public class ReadCSVFile {
 
 	}
 
-}
+
