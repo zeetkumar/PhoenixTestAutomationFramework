@@ -35,7 +35,7 @@ public class CreateJobAPITestDataDrivenTest {
 	  .post("/job/create")
 	  .then()
 	  .spec(responseSpec_OK())
-	  .body(matchesJsonSchemaInClasspath("response-schema/CreateJonAPIResponseSchema.json"))
+	  .body(matchesJsonSchemaInClasspath("response-schema/CreateJobAPIResponseSchema.json"))
 	  .body("message",equalTo("Job created successfully. "))
 	  .body("data.mst_service_location_id",equalTo(1))
 	  .body("data.job_number",startsWith("JOB_"));

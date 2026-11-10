@@ -8,8 +8,6 @@ import static org.hamcrest.Matchers.startsWith;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,73 +25,25 @@ import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
 import com.api.request.model.Problems;
-import com.api.utils.DateTimeUtil;
-import com.github.javafaker.Faker;
-
 import static com.api.utils.SpecUtil.*;
 
 public class CreateJobAPITest {
 	private CreateJobPayload createJobPayload;
-	private final static String COUNTRY= "India";
 	
 	@BeforeMethod(description = "Creating createjob api request payload")
 	public void setup() {
-Faker faker= new Faker(new Locale("en-IND")); // Help me create India specific fake data
-		
-		String fname=faker.name().firstName();
-		String lname=faker.name().lastName();
-		String mobileNumber=faker.numerify("70########");
-		String alternateMobileNumber=faker.numerify("70########");
-		String customerEmailAddress=faker.internet().emailAddress();
-		String altCustomerEmailAddress=faker.internet().emailAddress();
+		Customer customer = new Customer("Jatin", "Shharma", "7045663552", "", "jatinvsharma@gmail.com", "");
+		CustomerAddress customerAddress = new CustomerAddress("D 404", "Vasant Galaxy", "Bangur nagar", "Inorbit", "Mumbai", "411039", "India", "Maharashtra");
+		CustomerProduct customerProduct = new CustomerProduct(getTimeWithDaysAgo(10), "134530332084732", "134530332084732", "134530332084732", getTimeWithDaysAgo(10), 
+				Product.NEXUS_2.getCode()
+				, Model.NEXUS_2_BLUE.getCode());
+		Problems problems = new Problems(Problem.SMARTPHONE_IS_RUNNING_SLOW.getCode(), "Battery Issue");
 		
 		
-		Customer customer= new Customer(fname, lname, mobileNumber,alternateMobileNumber,customerEmailAddress, altCustomerEmailAddress);
+		List<Problems> problemList = new ArrayList<Problems>();
+		problemList.add(problems);
 		
-		System.out.println(customer);
-		
-		String flatNumber=faker.numerify("###");
-		String apartmentName=faker.address().streetName();
-		String streetName=faker.address().streetName();
-		String landMark=faker.address().streetName();
-		String area=faker.address().streetName();
-		String pinCode=faker.numerify("#####");
-		
-		String state=faker.address().state();
-		
-		
-		
-		
-		CustomerAddress customerAddress= new CustomerAddress(flatNumber, apartmentName, streetName,landMark, area, 
-				pinCode,COUNTRY, state);
-		
-		System.out.println(customerAddress);
-		
-		
-		//CustomerProduct Fake Object
-		
-		String dop= DateTimeUtil.getTimeWithDaysAgo(10);
-		String imeiSerialNumber=faker.numerify("###############");
-		String popUrl = faker.internet().url();
-		
-		
-		CustomerProduct customerProduct= new CustomerProduct(dop, imeiSerialNumber, imeiSerialNumber, imeiSerialNumber,popUrl, 1, 1);
-		System.out.println(customerProduct);
-		
-		System.out.println();
-		String fakeRemark=faker.lorem().sentence(5);
-		
-		// I want to generate a random number between 1 to 27
-		Random random = new Random();
-		int problemId=random.nextInt(3)+1;
-		
-		Problems problem= new Problems(problemId, fakeRemark);
-		System.out.println(problem);
-		
-		List<Problems> problemList= new ArrayList<Problems>();
-		problemList.add(problem);
-		
-		createJobPayload = new CreateJobPayload(0,2,1,1, customer, customerAddress, customerProduct, problemList);
+		 createJobPayload = new CreateJobPayload(ServiceLocation.SERVICE_LOCATION_A.getCode(), Platform.FRONT_DESK.getCode(), Warranty_Status.IN_WARRANTY.getCode(), OEM.GOOGLE.getCode(), customer, customerAddress, customerProduct, problemList);
 		
 	}
 	

@@ -20,7 +20,7 @@ public class FakerDemo2 {
 		//Create Fake CreateJobAPI Request Payload
 		// I want to create Fake Customer Object!!
 		
-		final String COUNTRY= "India";
+		
 		
 		Faker faker= new Faker(new Locale("en-IND")); // Help me create India specific fake data
 		
