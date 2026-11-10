@@ -49,7 +49,7 @@ public class FakerDemo2 {
 		
 		
 		CustomerAddress customerAddress= new CustomerAddress(flatNumber, apartmentName, streetName,landMark, area, 
-				pinCode,COUNTRY, state);
+				pinCode,COUNTRY,state);
 		
 		System.out.println(customerAddress);
 		
