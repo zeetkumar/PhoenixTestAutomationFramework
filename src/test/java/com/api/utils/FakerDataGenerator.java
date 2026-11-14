@@ -9,7 +9,7 @@ import java.util.Random;
 import com.api.request.model.CreateJobPayload;
 import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
-import com.api.request.model.CustomerProduct;
+import com.api.request.model.CustomerProduct;                                          
 import com.api.request.model.Problems;
 import com.github.javafaker.Faker;
 
@@ -24,6 +24,8 @@ public class FakerDataGenerator {
 	private final static int MST_OEM_ID=1;
 	private final static int PRODUCT_ID=1;
 	private final static int MST_MODEL_ID=1;
+	
+	private final static int valididProblemsID[]= {1,2,3,4,5,6,7,8,9,10,11,12,15,16,17,19,20,22,24,26,27,28,29};
 	 
 	private FakerDataGenerator() {
 		
@@ -39,21 +41,46 @@ public class FakerDataGenerator {
 	}
 	
 	public static Iterator<CreateJobPayload> generateFakeCreateJobData(int count) {
-	   List<CreateJobPayload> payloadList= new ArrayList<CreateJobPayload>();
-		Customer customer = generateFakeCustomerData();
-		CustomerAddress customerAddress= generateFakeCustomerAddressData();
-		CustomerProduct customerProduct= generateFakeCustomerProductData();
-		List<Problems> problemsList=generateFakeProblemsList();
-		CreateJobPayload payload= new CreateJobPayload(MST_SERVICE_LOCATION_ID, MST_PLATFORM_ID,MST_WARRANTY_STATUS_ID,MST_OEM_ID, customer, customerAddress, customerProduct, problemsList);
-		payloadList.add(payload);
-		return payloadList.iterator();
-		}
+
+	    List<CreateJobPayload> payloadList = new ArrayList<>();
+
+	    for (int i = 0; i < count; i++) {
+
+	        Customer customer = generateFakeCustomerData();
+
+	        CustomerAddress customerAddress =
+	                generateFakeCustomerAddressData();
+
+	        CustomerProduct customerProduct =
+	                generateFakeCustomerProductData();
+
+	        List<Problems> problemsList =
+	                generateFakeProblemsList();
+
+	        CreateJobPayload payload = new CreateJobPayload(
+	                MST_SERVICE_LOCATION_ID,
+	                MST_PLATFORM_ID,
+	                MST_WARRANTY_STATUS_ID,
+	                MST_OEM_ID,
+	                customer,
+	                customerAddress,
+	                customerProduct,
+	                problemsList
+	        );
+
+	        payloadList.add(payload);
+	    }
+
+	    System.out.println("Total fake payloads generated: " + payloadList.size());
+
+	    return payloadList.iterator();
+	}
 
 	private static List<Problems> generateFakeProblemsList() {
 		
-		int problemId=RANDOM.nextInt(26)+1;
+		int randomIndex=RANDOM.nextInt(valididProblemsID.length);
 		String fakeRemark=faker.lorem().sentence(5);
-		Problems problem= new Problems(problemId, fakeRemark);
+		Problems problem= new Problems(valididProblemsID[randomIndex], fakeRemark);
 		System.out.println(problem);
 		
 		List<Problems> problemList= new ArrayList<Problems>();

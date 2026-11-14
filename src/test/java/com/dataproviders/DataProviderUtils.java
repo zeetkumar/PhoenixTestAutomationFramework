@@ -23,7 +23,7 @@ public class DataProviderUtils {
 	// Data Provider needs to return something !!
 	//
 	
-	@DataProvider(name= "CreateJobDataProvider", parallel= true)
+	@DataProvider(name= "CreateJobDataProvider", parallel= false)
 	public static Iterator<CreateJobPayload> createJobDataProvider() {
 		Iterator<CreateJobBean> createjobIterator=CSVReaderUtil.loadCSV("testData/CreateJobData.csv",
 				CreateJobBean.class);
@@ -45,7 +45,5 @@ public class DataProviderUtils {
 	Iterator<CreateJobPayload> payloadIterator=	FakerDataGenerator.generateFakeCreateJobData(100);
 		return payloadIterator; 
 	 }
-	
-	
-	
+
 }
