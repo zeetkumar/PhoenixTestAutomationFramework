@@ -77,16 +77,28 @@ public class FakerDataGenerator {
 	}
 
 	private static List<Problems> generateFakeProblemsList() {
+	 int count = RANDOM.nextInt(3)+1;
+	 int randomIndex;
+	 String fakeRemark;
+	 Problems problem;
+	 List<Problems> problemList= new ArrayList<Problems>();
+	 
+	 for(int i=1;i<=count;i++) {
+	
+		// Generating a random Problem ID and adding it to the List
 		
-		int randomIndex=RANDOM.nextInt(valididProblemsID.length);
-		String fakeRemark=faker.lorem().sentence(5);
-		Problems problem= new Problems(valididProblemsID[randomIndex], fakeRemark);
+		 randomIndex=RANDOM.nextInt(valididProblemsID.length);
+		 fakeRemark=faker.lorem().sentence(5);
+		 problem= new Problems(valididProblemsID[randomIndex], fakeRemark);
 		System.out.println(problem);
 		
-		List<Problems> problemList= new ArrayList<Problems>();
-		problemList.add(problem);
-		return problemList;
+	    problemList.add(problem);
+	
+	 }
+	 
+	 return problemList;
 	}
+	
 
 	private static CustomerProduct generateFakeCustomerProductData() {
 		String dop= DateTimeUtil.getTimeWithDaysAgo(10);
@@ -116,7 +128,7 @@ public class FakerDataGenerator {
 				pinCode,COUNTRY,state);
 		
 		return customerAddress;
-	}
+	}         
 
 	private static Customer generateFakeCustomerData() {
 		String fname=faker.name().firstName();
