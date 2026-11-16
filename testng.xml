@@ -11,4 +11,5 @@
         <class name="com.api.tests.MasterAPITest"/>
     </classes>
   </test>
-</suite>
+</suite>                           
+               

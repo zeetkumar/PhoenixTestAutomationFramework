@@ -18,7 +18,7 @@ public class CreateJobAPIFakeTestDataDrivenTest {
 	
 	
 	
-	@Test  (description="Verify if the CreateJob API able to create Inwrranty job", groups={"api","smoke","datadriven"},
+	@Test  (description="Verify if the CreateJob API able to create Inwrranty job", groups={"api","smoke","datadriven","faker"},
 	        dataProviderClass= com.dataproviders.DataProviderUtils.class,
 	        dataProvider= "CreateJobAPIFakerDataProvider"
 	        
@@ -41,6 +41,5 @@ public class CreateJobAPIFakeTestDataDrivenTest {
 	  .body("data.mst_service_location_id",equalTo(1))
 	  .body("data.job_number",startsWith("JOB_"));
 		
-	}
-
-}
+	}     
+}                                                 
