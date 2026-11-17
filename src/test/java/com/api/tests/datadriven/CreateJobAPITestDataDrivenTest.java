@@ -18,7 +18,7 @@ public class CreateJobAPITestDataDrivenTest {
 	
 	
 	
-	@Test  (description="Verify if the CreateJob API able to create Inwrranty job", groups={"api","smoke","datadriven"},
+	@Test  (description="Verify if the CreateJob API able to create Inwrranty job", groups={"api","smoke","datadriven","csv"},
 	        dataProviderClass= com.dataproviders.DataProviderUtils.class,
 	        dataProvider= "CreateJobDataProvider"
 			
@@ -35,7 +35,7 @@ public class CreateJobAPITestDataDrivenTest {
 	  .post("/job/create")
 	  .then()
 	  .spec(responseSpec_OK())
-	  .body(matchesJsonSchemaInClasspath("response-schema/CreateJonAPIResponseSchema.json"))
+	  .body(matchesJsonSchemaInClasspath("response-schema/CreateJobAPIResponseSchema.json"))
 	  .body("message",equalTo("Job created successfully. "))
 	  .body("data.mst_service_location_id",equalTo(1))
 	  .body("data.job_number",startsWith("JOB_"));

@@ -32,6 +32,7 @@ on:
           - testng.xml
           - smoke.xml
           - regression.xml
+          - testng-datadriven.xml
         default: testng.xml
         required: true
 
