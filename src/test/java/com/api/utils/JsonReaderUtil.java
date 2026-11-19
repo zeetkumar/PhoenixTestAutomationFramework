@@ -21,12 +21,12 @@ public class JsonReaderUtil {
 			classArray = objectMapper.readValue(is, clazz);
 			list=Arrays.asList(classArray);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
 		
-		return list.iterator();
+		return list.iterator(); 
 		
 	}
 
