@@ -1,0 +1,140 @@
+[
+	
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 2,
+	    "customer": {
+	        "first_name": "Isaac",
+	        "last_name": "Koepp",
+	        "mobile_number": "480-471-5969",
+	        "mobile_number_alt": "",
+	        "email_id": "Shanon.Haley@hotmail.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "505",
+	        "apartment_name": "Kazi road",
+	        "street_name": "local street",
+	        "landmark": "Near Mandir",
+	        "area": "Textus",
+	        "pincode": "343341",
+	        "country": "India",
+	        "state": "Assam"
+	    },
+	    "customer_product": {
+	        "dop": "2025-09-01T18:30:00.000Z",
+	        "serial_number": "12822964778908",
+	        "imei1": "12822964778908",
+	        "imei2": "12822964778908",
+	        "popurl": "2025-09-01T18:30:00.000Z",
+	        "product_id": 3,
+	        "mst_model_id": 3
+	    },
+	    "problems": [
+	        {
+	            "id": 4,
+	            "remark": "related Screen issue"
+	        },
+			{
+			            "id": 3,
+			            "remark": "Battery Issue"
+			        }
+	    ]
+	},
+
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 2,
+	    "customer": {
+	        "first_name": "Isaac",
+	        "last_name": "Koepp",
+	        "mobile_number": "480-471-5969",
+	        "mobile_number_alt": "",
+	        "email_id": "Shanon.Haley@hotmail.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "505",
+	        "apartment_name": "Kazi road",
+	        "street_name": "local street",
+	        "landmark": "Near Mandir",
+	        "area": "Textus",
+	        "pincode": "343341",
+	        "country": "India",
+	        "state": "Assam"
+	    },
+	    "customer_product": {
+	        "dop": "2025-09-01T18:30:00.000Z",
+	        "serial_number": "62822964778908",
+	        "imei1": "62822964778908",
+	        "imei2": "62822964778908",
+	        "popurl": "2025-09-01T18:30:00.000Z",
+	        "product_id": 3,
+	        "mst_model_id": 3
+	    },
+	    "problems": [
+	        {
+	            "id": 2,
+	            "remark": "Sim tray issue"
+	        }
+	    ]
+	},
+
+	{
+	    "mst_service_location_id": 0,
+	    "mst_platform_id": 2,
+	    "mst_warrenty_status_id": 1,
+	    "mst_oem_id": 2,
+	    "customer": {
+	        "first_name": "Isaac",
+	        "last_name": "Koepp",
+	        "mobile_number": "480-471-5969",
+	        "mobile_number_alt": "",
+	        "email_id": "Shanon.Haley@hotmail.com",
+	        "email_id_alt": ""
+	    },
+	    "customer_address": {
+	        "flat_number": "505",
+	        "apartment_name": "Kazi road",
+	        "street_name": "local street",
+	        "landmark": "Near Mandir",
+	        "area": "Textus",
+	        "pincode": "343341",
+	        "country": "India",
+	        "state": "Assam"
+	    },
+	    "customer_product": {
+	        "dop": "2025-09-01T18:30:00.000Z",
+	        "serial_number": "62822964778908",
+	        "imei1": "62822964778908",
+	        "imei2": "62822964778908",
+	        "popurl": "2025-09-01T18:30:00.000Z",
+	        "product_id": 3,
+	        "mst_model_id": 3
+	    },
+	    "problems": [
+	        {
+	            "id": 1,
+	            "remark": "related Screen issue with LCD"
+	        }
+			
+	    ]
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+]
