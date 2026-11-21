@@ -7,7 +7,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
-import com.api.request.model.UserCredentilas;
+import com.dataproviders.api.bean.UserBean;
 
 public class LoginAPIExcelDataDrivenTest {
 	
@@ -20,12 +20,12 @@ public class LoginAPIExcelDataDrivenTest {
 			dataProvider="LoginAPIExcelDataProvider"
 	
 			)
-	public void loginAPITest(UserCredentilas userCredentilas)  {
+	public void loginAPITest(UserBean userBean)  {
 		// Rest Assured Code !
 		
 		
 		given()
-		.spec(requestspec( userCredentilas))
+		.spec(requestspec(userBean))
 	    .when()
         .post("login")
         .then()
